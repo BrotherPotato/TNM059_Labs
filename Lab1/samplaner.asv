@@ -97,7 +97,7 @@ ut = zeros(rad/2, kolumn/2);
 for i = 1:2:rad %  move sample down
     for j = 1:2:kolumn % move sample to the right
         curr_square = in(i:i+1, j:j+1);   
-        curr_mean = mean(curr_square(:));
+        curr_mean = mean2(curr_square(:));
         ut(rad_counter, kolumn_counter) = curr_mean;
         kolumn_counter = kolumn_counter + 1;
     end
