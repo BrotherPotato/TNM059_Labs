@@ -59,6 +59,8 @@ function ut=samplaner(in)
     % and columns in the original image.
 %
 
+% make sure that the output matrix is even, throws away the last column/
+% row if needed
 if mod(rad,2) ~= 0
     rad = rad -1;
 end
@@ -92,15 +94,21 @@ kolumn_counter = 1; % Column counter
     %end
 %end
 %
+% create a output matrix filled with zeros
 ut = zeros(rad/2, kolumn/2);
 
-for i = 1:2:rad %  move sample down
-    for j = 1:2:kolumn % move sample to the right
+for i = 1:2:rad %  move sample square down
+    for j = 1:2:kolumn % move sample square to the right
+        % take the current sample square
         curr_square = in(i:i+1, j:j+1);   
+        % calculate the mean of the sample square
         curr_mean = mean(curr_square(:));
+        % store the mean in the output matrix
         ut(rad_counter, kolumn_counter) = curr_mean;
+        % move ->
         kolumn_counter = kolumn_counter + 1;
     end
+    % move to the next row and reset column
     rad_counter = rad_counter + 1;
     kolumn_counter = 1;
 end
