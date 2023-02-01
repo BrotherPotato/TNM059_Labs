@@ -24,7 +24,7 @@ function ut=samplaner(in)
 %% Basic version control (in case you need more than one attempt)
 %
 % Version: 1
-% Date: today
+% Date: 2023-02-01
 %
 % Gives a history of your submission to Lisam.
 % Version and date for this function have to be updated before each
