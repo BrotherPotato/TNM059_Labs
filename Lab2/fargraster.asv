@@ -60,29 +60,23 @@ B = in(:,:,3); % The blue channel of the input image
 %
 %% Check which method to be used
 %
-if strcmp(metod,'errordif') % check if the method is 'errordif'
+if strcmp(method,'errordif') % check if the method is 'errordif'
     % Halftone each channel separately by errordif (use Floyd-Steinberg's filter),
     % and then collect them in a color image, which is the output
     % of this function, called ut.
-
     filt = [0 0 7;
         3 5 1]/16;
-    ut(:,:,1) = errordif(R, filt);
-    ut(:,:,2) = errordif(G, filt);
-    ut(:,:,3) = errordif(B, filt);
+    Rfilt = errordif(R, filt);
+    Gfilt = errordif(G, filt);
+    Bfilt = errordif(B, filt);
 
-elseif strcmp(metod,'imcdp') % If the method is not 'errordif' check if the method is 'imcdp'
+elseif strcmp(method,'imcdp') % If the method is not 'errordif' check if the method is 'imcdp'
     % Halftone each channel separately by imcdp, and then collect them in
     % a color image, which is the output of this function, called ut.
     
-    ut(:,:,1) = imcdp(R);
-    ut(:,:,2) = imcdp(G);
-    ut(:,:,3) = imcdp(B);
-
 else % if the method is neither 'errordif' nor 'imcdp', write a message and set
     % the output ut to zero.
-    disp('Måste använda errordif eller IMCDP');
-    ut = 0;
+    
 end
 %
 %% Test your code
