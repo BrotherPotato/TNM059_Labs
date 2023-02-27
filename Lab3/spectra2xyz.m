@@ -9,9 +9,8 @@ function [X, Y, Z]=spectra2xyz(reflectance, illumination)
 % kompendiet.
 %% Who has done it:
 %
-% Author: Same LiU-ID and name as in the Lisam submission
-% Co-author: You can work in groups of max 2, this is the LiU-ID/name of
-% the other member of the group
+% Author: Max Wiklundh - maxwi824
+% Co-author: Magnus Kling - magkl572
 %
 %% Syntax of the function
 %      Input arguments:
@@ -59,19 +58,33 @@ function [X, Y, Z]=spectra2xyz(reflectance, illumination)
 %
 %% Loading the useful data
 %
-load spectra %this will give you all the data you need to write the code. 
+load spectra.mat; %this will give you all the data you need to write the code. 
 % The data and their size are specified in the document Lab_3.2_spectra2xyz.pdf.
 %
+x = XYZ(:,1);
+y = XYZ(:,2);
+z = XYZ(:,3);
 %
 %% Calculate the CIEXYZ values
 % Read pages 68 to 71, specially Equation 6.8 and Example 6.2 in the course
 % book to figure out how to calculate CIEXYZ
 %
-k= %calculate the normalization factor
-X= ... % this gives the X-tristimulus value
-Y= ... % this gives the Y-tristimulus value
-Z= ... % this gives the Z-tristimulus value
+k= 100/sum(illumination.*y); %calculate the normalization factor
+X= k * sum(reflectance.* illumination .* x); % this gives the X-tristimulus value
+Y= k * sum(reflectance.* illumination .* y); % this gives the Y-tristimulus value
+Z= k * sum(reflectance.* illumination .* z); % this gives the Z-tristimulus value
 %
 %% Test your code
 % Test your code in assignment 1.1 in the third part of this lab and make sure that it works as it should
 % befor you continue
+
+
+
+
+
+
+
+
+
+
+
