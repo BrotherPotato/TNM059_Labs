@@ -58,12 +58,13 @@ function [X, Y, Z]=spectra2xyz(reflectance, illumination)
 %
 %% Loading the useful data
 %
+xyz = [0 0 0];
 load spectra.mat; %this will give you all the data you need to write the code. 
 % The data and their size are specified in the document Lab_3.2_spectra2xyz.pdf.
 %
-x = XYZ(:,1);
-y = XYZ(:,2);
-z = XYZ(:,3);
+x = xyz(:,1);
+y = xyz(:,2);
+z = xyz(:,3);
 %
 %% Calculate the CIEXYZ values
 % Read pages 68 to 71, specially Equation 6.8 and Example 6.2 in the course
