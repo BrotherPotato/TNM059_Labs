@@ -28,7 +28,7 @@ function [X, Y, Z]=spectra2xyz(reflectance, illumination)
 %% Basic version control (in case you need more than one attempt)
 %
 % Version: 1
-% Date: today
+% Date: 23-02-28
 %
 % Gives a history of your submission to Lisam.
 % Version and date for this function have to be updated before each
